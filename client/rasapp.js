@@ -1,4 +1,4 @@
-var socket = require("socket.io-client")("http://10.113.31.109:8080");
+var socket = require("socket.io-client")("http://localhost:8080");
 var gpio = require("rpi-gpio");
 
 //start up code
