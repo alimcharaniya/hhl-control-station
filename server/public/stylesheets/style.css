@@ -1,8 +1,37 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.page-header {
+	margin: 0;
 }
 
-a {
-  color: #00B7FF;
+div > .podStatus {
+	padding: 0;
+    height: 2.15em;
+}
+
+.podStatusField {
+	display: inline-block;
+}
+
+.emergencyStop {
+	line-height: 3;
+	margin: .5em 0;
+	width: 100%;
+}
+
+.podView {
+	text-align: center;
+}
+
+.switchContainer { 
+	margin: 1em 0;
+	text-align: center;
+}
+
+.podSwitch {
+	display: inline-block;
+}
+
+@media (min-width: 992px) {
+	.emergencyStop {
+		width: initial;
+	}
 }
