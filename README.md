@@ -7,11 +7,11 @@ About the app:
 
 Architect: Alim Charaniya
 
-Contributors: Prem Bhaskara 
+Contributors: David Judilla, Alim Charaniya, Prem Bhaskara 
 
 Project: Hornet Hyperloop
 
-Technologies: HTML/Bootstrap, NodeJS, Angular, MongoDB, RPi, Raspbian 
+Technologies: HTML/Bootstrap, NodeJS, MongoDB, RPi, Raspbian, WebSocket, Python
 
 Framework: MEAN Stack
 
