@@ -21,6 +21,10 @@ div > .podStatus {
 	text-align: center;
 }
 
+.podView img {
+	width: 100%
+}
+
 .switchContainer { 
 	margin: 1em 0;
 	text-align: center;
