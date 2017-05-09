@@ -1,3 +1,11 @@
+/* This file is used primarily to update the fields on the index.html page
+ * Fields are updated using the updateFields() function which takes in an object with the structure of `podMetrics` (See in code below.)
+ *
+ * Client is connected to a web socket, which is how this application will recieve updates. 
+ * The plan is to listen for an event and use the data from that event to update the fields on the page.
+ *
+*/
+
 $("[name='deployWheels']").bootstrapSwitch();
 $("[name='eddyBrake']").bootstrapSwitch();
 $("[name='parkingBrake']").bootstrapSwitch();
@@ -98,6 +106,10 @@ var intCondPressureField = interiorPanel.querySelector('.intCondPressureField');
 var intCondTempField = interiorPanel.querySelector('.intCondTempField');
 
 function updateFields(metrics) {
+  // Reassign .innerText to update value of fields
+  // Reassign .style.width to a new percentage to update progress bar widths
+  // Reassign .check to a boolean value to change the switches/checkboxes
+
   // Pod Status
   podStatusField.innerText = metrics.podStatus;
 
