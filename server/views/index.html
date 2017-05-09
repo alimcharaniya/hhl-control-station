@@ -105,7 +105,7 @@
                     <h1 class="header">Pod Data Overview</h1>
                 </div>
                 <div class="col-lg-2 bg-success col-lg-offset-1">
-                  <h2 class="podStatus"> Pod Status: <span class="podStatusField">Pre-Flight</span></h2>
+                  <h2 class="podStatus updateField"> Pod Status: <span class="podStatusField">Pre-Flight</span></h2>
                 </div>
                 <div class="col-lg-2">
                   <button type="button" class="emergencyStop btn btn-danger btn-lg">Emergency Stop</button>
@@ -121,19 +121,19 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="">
-                                <a href="#" class="list-group-item">
-                                    <span><i class="fa fa-comment fa-fw"></i> Position</span>
-                                    <span class="pull-right">4 cn</span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <span><i class="fa fa-twitter fa-fw"></i> Velocity</span>
-                                    <span class="pull-right">0 cm/s</span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <span><i class="fa fa-envelope fa-fw"></i> Acceleration</span>
-                                    <span class="pull-right">0 cm/s^2</span>
-                                </a>
+                            <div>
+                                <div class="list-group-item">
+                                    <span>Position</span>
+                                    <span class="updateField pull-right"><span class="positionField"></span> cm</span>
+                                </div>
+                                <div class="list-group-item">
+                                    <span>Velocity</span>
+                                    <span class="updateField pull-right"><span class="velocityField"></span> cm/s</span>
+                                </div>
+                                <div class="list-group-item">
+                                    <span>Acceleration</span>
+                                    <span class="updateField pull-right"><span class="accelerationField"></span> cm/s^2</span>
+                                </div>
                             </div>
                         </div>
                         <!-- /.panel-body -->
@@ -145,39 +145,55 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="">
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Lateral Offset
-                                    <span class="pull-right">0.10 cm</span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-twitter fa-fw"></i> Levitation
-                                    <span class="pull-right">2.54 cm</span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-envelope fa-fw"></i> Height
-                                    <span class="pull-right">2.50 cm</span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-tasks fa-fw"></i> Height
-                                    <span class="pull-right">2.56 cm</span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-upload fa-fw"></i> Height
-                                    <span class="pull-right">2.50 cm</span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-bolt fa-fw"></i> Height
-                                    <span class="pull-right">2.56 cm</span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-warning fa-fw"></i> Yaw
-                                    <span class="pull-right">2.56 cm</span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-shopping-cart fa-fw"></i> Roll
-                                    <span class="pull-right">2.56 cm</span>
-                                </a>
+                            <div>
+                                <div class="list-group-item">
+                                     Lateral Offset 
+                                     <span class="pull-right">
+                                        <span class="lateralOffsetField updateField"></span>cm
+                                     </span>
+                                </div>
+                                <div class="list-group-item">
+                                     Levitation 
+                                     <span class="pull-right">
+                                        <span class="levitationField updateField"></span>cm
+                                     </span>
+                                </div>
+                                <div class="list-group-item">
+                                     Height_FR 
+                                     <span class="pull-right">
+                                        <span class="heightFRField updateField"></span>cm
+                                     </span>
+                                </div>
+                                <div class="list-group-item">
+                                     Height_FL 
+                                     <span class="pull-right">
+                                        <span class="heightFLField updateField"></span>cm
+                                     </span>
+                                </div>
+                                <div class="list-group-item">
+                                     Height_BR 
+                                     <span class="pull-right">
+                                        <span class="heightBRField updateField"></span>cm
+                                     </span>
+                                </div>
+                                <div class="list-group-item">
+                                     Height_BL 
+                                     <span class="pull-right">
+                                        <span class="heightBLField updateField"></span>cm
+                                     </span>
+                                </div>
+                                <div class="list-group-item">
+                                     Yaw 
+                                     <span class="pull-right">
+                                        <span class="yawField updateField"></span>cm
+                                     </span>
+                                </div>
+                                <div class="list-group-item">
+                                    Roll 
+                                    <span class="pull-right">
+                                        <span class="rollField updateField"></span>cm
+                                    </span>
+                                </div>
                             </div>
                             <!-- /.list-group -->
                         </div>
@@ -192,16 +208,16 @@
                     </div>
                     <div class="switchContainer">
                         <div class="podSwitch">
-                            <b>Deploy Wheels</b> <br><input type="checkbox" name="deployWheels">
+                            <b>Deploy Wheels</b> <br><input type="checkbox" class="updateField" name="deployWheels">
                         </div>
                         <div class="podSwitch">
-                            <b>Eddy Brake</b> <br><input type="checkbox" name="eddyBrake">
+                            <b>Eddy Brake</b> <br><input type="checkbox" class="updateField" name="eddyBrake">
                         </div>
                         <div class="podSwitch">
-                            <b>Parking Brake</b> <br><input type="checkbox" name="parkingBrake">
+                            <b>Parking Brake</b> <br><input type="checkbox" class="updateField" name="parkingBrake">
                         </div>
                         <div class="podSwitch">
-                            <b>Propulsion</b> <br><input type="checkbox" name="propulsion">
+                            <b>Propulsion</b> <br><input type="checkbox" class="updateField" name="propulsion">
                         </div>
 
                     </div>
@@ -217,41 +233,41 @@
                             <div class="panel-body">
                                 <p>
                                     <span>Battery Level</span>
-                                    <span class="pull-right text-muted">40% Charge</span>
+                                    <span class="updateField pull-right"><span class="batteryLevel"></span>% Charge</span>
                                 </p>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
-                                        <strong class="">40% Charge</strong>
+                                    <div class="progress-bar progress-bar-success batteryLevelProgBar">
+                                        <strong><span class="batteryLevelProgBarText"></span>% Charge</strong>
                                     </div>
                                 </div>
 
                                 <p>
                                     <span>Voltage Level</span>
-                                    <span class="pull-right text-muted">4.7 Volts</span>
+                                    <span class="updateField pull-right"><span class="voltageField"></span> Volts</span>
                                 </p>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
-                                        <strong class="">4.7 Volts</strong>
+                                    <div class="progress-bar progress-bar-info voltageFieldProgBar">
+                                        <strong><span class="voltageFieldProgBarText"></span> Volts</strong>
                                     </div>
                                 </div>
 
                                 <p>
                                     <span>Current Level</span>
-                                    <span class="pull-right text-muted">55 Amps</span>
+                                    <span class="updateField pull-right"><span class="currentField"></span> Amps</span>
                                 </p>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
-                                        <strong class="">55 Amps</strong>
+                                    <div class="progress-bar progress-bar-warning currentFieldProgBar">
+                                        <strong><span class="currentFieldProgBarText"></span> Amps</strong>
                                     </div>
                                 </div>
 
                                 <p>
                                     <span>Battery Temperature</span>
-                                    <span class="pull-right text-muted">34 C.</span>
+                                    <span class="updateField pull-right"><span class="batteryTempField"></span> C.</span>
                                 </p>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
-                                        <strong class="">34 C.</strong>
+                                    <div class="progress-bar progress-bar-danger batteryTempFieldProgBar">
+                                        <strong><span class="batteryTempFieldProgBarText"></span> C.</strong>
                                     </div>
                                 </div>
                             </div>
@@ -266,14 +282,12 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Pressure
-                                    <span class="pull-right">00.1 PSI</span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-twitter fa-fw"></i> Temperature
-                                    <span class="pull-right">57.7 F</span>
-                                </a>
+                                <div class="list-group-item">
+                                    Pressure <span class="updateField pull-right"><span class="extCondPressureField"></span> PSI</span>
+                                </div>
+                                <div class="list-group-item">
+                                    Temperature <span class="updateField pull-right"><span class="extCondTempField"></span> F</span>
+                                </div>
                             </div>
                             <!-- /.list-group -->
                         </div>
@@ -286,14 +300,12 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Pressure
-                                    <span class="pull-right">14.56 PSI</span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-twitter fa-fw"></i> Temperature
-                                    <span class="pull-right">101.2 F</span>
-                                </a>
+                                <div class="list-group-item">
+                                    Pressure <span class="updateField pull-right"><span class="intCondPressureField"></span> PSI</span>
+                                </div>
+                                <div class="list-group-item">
+                                    Temperature <span class="updateField pull-right"><span class="intCondTempField"></span> F</span>
+                                </div>
                             </div>
                             <!-- /.list-group -->
                         </div>
@@ -329,16 +341,13 @@
     <script src="/vendor/dist/js/sb-admin-2.js"></script>
 
     <!-- Main Javascript -->
-    <script src="/javascripts/main.js"></script>
 
     <!-- Include Socket IO -->
     <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/main.js"></script>
+
     <script>
-      var socket = io.connect('/');
-      $("#testCheckbox").change(function(){
-        console.log("CHANGED");
-        socket.emit("stateChanged", this.checked);
-      });
+     
     </script>
 
 </body>
