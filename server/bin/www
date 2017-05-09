@@ -29,7 +29,10 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(port, function(err) {
+  if (err) throw err;
+  console.log('Listening on localhost:' + port);
+});
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -105,6 +108,18 @@ function onListening() {
    socket.on("stateChanged", function(state){
      console.log("state is: " + state );
      io.emit("stateChanged", state);
+   });
+
+   socket.on("updateRange", function(data, time){
+      let currTime = new Date().toISOString()
+
+      console.log(data);
+      let pyTime = parseFloat(time.substr(17))
+      let jsTime = parseFloat(currTime.substr(17))
+      console.log("rPi: " + pyTime);
+      console.log("client: " + jsTime);
+      console.log("Latency: " + ((jsTime - pyTime)*100) + "ms");
+      io.emit("updateRange", data, time);
    });
 
  });
