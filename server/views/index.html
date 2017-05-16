@@ -101,21 +101,39 @@
 
         <div id="page-wrapper">
             <div class="row page-header">
-                <div class="col-lg-7">
+                <div class="col-lg-6">
                     <h1 class="header">Pod Data Overview</h1>
                 </div>
-                <div class="col-lg-2 bg-success col-lg-offset-1">
+                <div class="col-lg-3 bg-success col-lg-offset-1">
                   <h2 class="podStatus updateField"> Pod Status: <span class="podStatusField">Pre-Flight</span></h2>
                 </div>
                 <div class="col-lg-2">
                   <button type="button" class="emergencyStop btn btn-danger btn-lg">Emergency Stop</button>
                 </div>
             </div>
-            <input type="checkbox" id="testCheckbox"/>
-
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="tubePositionPanel panel panel-green">
+                    <div class="reflectorPanel panel panel-green">
+                        <div class="panel-heading">
+                            <span><i class="fa fa-bell fa-fw"></i> Retroreflector Data </span>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div>
+                                <div class="list-group-item">
+                                    <span>Is reflector on? </span>
+                                    <span class="reflectorStatus pull-right"><span class="reflectorStatusField"></span> </span>
+                                </div>
+                                <div class="list-group-item">
+                                    <span>Reflector Count</span>
+                                    <span class="reflectorCount pull-right"><span class="reflectorCountField"></span> times</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+
+                    <div class="tubePositionPanel panel panel-yellow">
                         <div class="panel-heading">
                             <span><i class="fa fa-bell fa-fw"></i> Tube Position </span>
                         </div>
@@ -139,7 +157,7 @@
                         <!-- /.panel-body -->
                     </div>
 
-                    <div class="positionTelemetryPanel panel panel-green">
+                    <div class="positionTelemetryPanel panel panel-yellow">
                         <div class="panel-heading">
                             <i class="fa fa-bell fa-fw"></i> Position Telemetry
                         </div>
@@ -147,49 +165,49 @@
                         <div class="panel-body">
                             <div>
                                 <div class="list-group-item">
-                                     Lateral Offset 
+                                     Lateral Offset
                                      <span class="pull-right">
                                         <span class="lateralOffsetField updateField"></span>cm
                                      </span>
                                 </div>
                                 <div class="list-group-item">
-                                     Levitation 
+                                     Levitation
                                      <span class="pull-right">
                                         <span class="levitationField updateField"></span>cm
                                      </span>
                                 </div>
                                 <div class="list-group-item">
-                                     Height_FR 
+                                     Height_FR
                                      <span class="pull-right">
                                         <span class="heightFRField updateField"></span>cm
                                      </span>
                                 </div>
                                 <div class="list-group-item">
-                                     Height_FL 
+                                     Height_FL
                                      <span class="pull-right">
                                         <span class="heightFLField updateField"></span>cm
                                      </span>
                                 </div>
                                 <div class="list-group-item">
-                                     Height_BR 
+                                     Height_BR
                                      <span class="pull-right">
                                         <span class="heightBRField updateField"></span>cm
                                      </span>
                                 </div>
                                 <div class="list-group-item">
-                                     Height_BL 
+                                     Height_BL
                                      <span class="pull-right">
                                         <span class="heightBLField updateField"></span>cm
                                      </span>
                                 </div>
                                 <div class="list-group-item">
-                                     Yaw 
+                                     Yaw
                                      <span class="pull-right">
                                         <span class="yawField updateField"></span>cm
                                      </span>
                                 </div>
                                 <div class="list-group-item">
-                                    Roll 
+                                    Roll
                                     <span class="pull-right">
                                         <span class="rollField updateField"></span>cm
                                     </span>
@@ -203,21 +221,21 @@
                     <!-- /.panel .chat-panel -->
                 </div>
                 <div class="col-lg-6">
-                    <div class="podView">                    
+                    <div class="podView">
                         <img src="/images/podView.png">
                     </div>
                     <div class="switchContainer">
                         <div class="podSwitch">
-                            <b>Deploy Wheels</b> <br><input type="checkbox" class="updateField" name="deployWheels">
+                            <b>Deploy Wheels</b> <br><input type="checkbox" id="deployWheelsSwitch" name="deployWheels">
                         </div>
                         <div class="podSwitch">
-                            <b>Eddy Brake</b> <br><input type="checkbox" class="updateField" name="eddyBrake">
+                            <b>Eddy Brake</b> <br><input type="checkbox" id="eddyBrakeSwitch" name="eddyBrake">
                         </div>
                         <div class="podSwitch">
-                            <b>Parking Brake</b> <br><input type="checkbox" class="updateField" name="parkingBrake">
+                            <b>Parking Brake</b> <br><input type="checkbox" id="parkingBrakeSwitch" name="parkingBrake">
                         </div>
                         <div class="podSwitch">
-                            <b>Propulsion</b> <br><input type="checkbox" class="updateField" name="propulsion">
+                            <b>Propulsion</b> <br><input type="checkbox" id="propulsionSwitch" name="propulsion">
                         </div>
 
                     </div>
@@ -226,7 +244,7 @@
                 </div>
                 <!-- /.col-lg-4 -->
                 <div class="col-lg-3">
-                    <div class="batteryInfoPanel panel panel-green">
+                    <div class="batteryInfoPanel panel panel-yellow">
                             <div class="panel-heading">
                                 <span><i class="fa fa-bell fa-fw"></i> Battery Information</span>
                             </div>
@@ -275,7 +293,7 @@
 
                             <!-- /.panel-body -->
                         </div>
-                    <div class="exteriorPanel panel panel-green">
+                    <div class="exteriorPanel panel panel-yellow">
                         <div class="panel-heading">
                             <span><i class="fa fa-bell fa-fw"></i> Exterior Conditions </span>
                         </div>
@@ -293,7 +311,7 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
-                    <div class="interiorPanel panel panel-green">
+                    <div class="interiorPanel panel panel-yellow">
                         <div class="panel-heading">
                             <i class="fa fa-bell fa-fw"></i> Interior Conditions
                         </div>
@@ -332,23 +350,20 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
-    <!-- Morris Charts JavaScript -->
-    <script src="../vendor/raphael/raphael.min.js"></script>
-    <script src="../vendor/morrisjs/morris.min.js"></script>
-    <script src="/vendor/data/morris-data.js"></script>
-
     <!-- Custom Theme JavaScript -->
     <script src="/vendor/dist/js/sb-admin-2.js"></script>
 
-    <!-- Main Javascript -->
-
     <!-- Include Socket IO -->
     <script src="/socket.io/socket.io.js"></script>
+
+    <!-- Main Javascript -->
     <script src="/javascripts/main.js"></script>
 
-    <script>
-     
-    </script>
+    <!-- Include Google Charts API  -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- Charts Javascript File-->
+    <script src="/javascripts/charting.js"></script>
 
 </body>
 

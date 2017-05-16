@@ -122,4 +122,9 @@ function onListening() {
       io.emit("updateRange", data, time);
    });
 
+   socket.on("gotRetroValue", function(id, data){
+     console.log("got retro data!!!!" );
+     io.emit("updateRetroValue", id, data);
+   });
+
  });

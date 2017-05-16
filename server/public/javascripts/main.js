@@ -1,7 +1,7 @@
 /* This file is used primarily to update the fields on the index.html page
  * Fields are updated using the updateFields() function which takes in an object with the structure of `podMetrics` (See in code below.)
  *
- * Client is connected to a web socket, which is how this application will recieve updates. 
+ * Client is connected to a web socket, which is how this application will recieve updates.
  * The plan is to listen for an event and use the data from that event to update the fields on the page.
  *
 */
@@ -17,7 +17,7 @@ var podMetrics = {
     position: "5",
     velocity: "0",
     acceleration: "0"
-  }, 
+  },
   positionTelemetry: {
    lateral: 0.10,
    levitation: 2.54,
@@ -51,13 +51,17 @@ var podMetrics = {
 }
 
 var tubePositionPanel = document.querySelector('.tubePositionPanel');
+var retroflectorPanel = document.querySelector('.reflectorPanel');
 var positionTelemetryPanel = document.querySelector('.positionTelemetryPanel');
 var switchContainer = document.querySelector('.switchContainer');
 var batteryInfoPanel = document.querySelector('.batteryInfoPanel');
 var exteriorPanel = document.querySelector('.exteriorPanel');
 var interiorPanel = document.querySelector('.interiorPanel');
-
 var podStatusField = document.querySelector('.podStatusField');
+
+// Retroreflector Panel
+var reflectorStatusField = retroflectorPanel.querySelector('.reflectorStatusField');
+var reflectorCountField = retroflectorPanel.querySelector('.reflectorCountField');
 
 // Tube Position Panel
 var positionField = tubePositionPanel.querySelector('.positionField');
@@ -114,11 +118,11 @@ function updateFields(metrics) {
   podStatusField.innerText = metrics.podStatus;
 
   // Tube Position
-  positionField.innerText = metrics.tubePosition.position; 
-  velocityField.innerText = metrics.tubePosition.velocity; 
-  accelerationField.innerText = metrics.tubePosition.acceleration; 
+  positionField.innerText = metrics.tubePosition.position;
+  velocityField.innerText = metrics.tubePosition.velocity;
+  accelerationField.innerText = metrics.tubePosition.acceleration;
 
-  // Position Telemetry 
+  // Position Telemetry
   lateralOffsetField.innerText = metrics.positionTelemetry.lateral;
   levitationField.innerText = metrics.positionTelemetry.levitation;
   heightFRField.innerText = metrics.positionTelemetry.heightFR;
@@ -158,20 +162,37 @@ function updateFields(metrics) {
   // Interior Panel
   intCondPressureField.innerText = metrics.exteriorCond.pressure;
   intCondTempField.innerText = metrics.exteriorCond.temperature;
-}
+};
 
 updateFields(podMetrics)
 
 
+
 // Socket IO
 var socket = io.connect('/');
+
+//testing socketIO with checkbox
 $("#testCheckbox").change(function(){
   console.log("CHANGED");
   socket.emit("stateChanged", this.checked);
 });
 
-var posField = document.querySelector('.positionField');
 
+//when retroreflector value is ready, update front end
+//if retrorflector fires, play sound
+var marioSound = new Audio('/sounds/mario.mp3');
+socket.on('updateRetroValue', function(id, data){
+  if (id == 1){
+    reflectorStatusField.innerText = 'YES';
+    marioSound.play();
+  } else {
+    reflectorStatusField.innerText = 'NO';
+  }
+  reflectorCountField.innerText = data;
+});
+
+//front end test code for ultrasonic ping sensor
+var posField = document.querySelector('.positionField');
 socket.on('updateRange', function(data, time) {
   let currTime = new Date().toISOString()
 
