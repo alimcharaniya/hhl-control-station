@@ -81,8 +81,8 @@ var rollField = positionTelemetryPanel.querySelector('.rollField')
 // Switch Container
 var deployWheels = switchContainer.querySelector("input[name='deployWheels']")
 var eddyBrake = switchContainer.querySelector("input[name='eddyBrake']")
-var parkingBrake = switchContainer.querySelector("input[name='parkingBrake']")
-var propulsion = switchContainer.querySelector("input[name='propulsion']")
+var parkingBrakeButton = switchContainer.querySelector("input[name='parkingBrake']")
+var propulsionButton = switchContainer.querySelector("input[name='propulsion']")
 
 // Battery Info Panel
 var batteryLevel = batteryInfoPanel.querySelector('.batteryLevel');
@@ -135,8 +135,8 @@ function updateFields(metrics) {
   // Switch Container
   deployWheels.checked = metrics.switchStatus.deployWheel;
   eddyBrake.checked = metrics.switchStatus.eddyBrake;
-  parkingBrake = metrics.switchStatus.parkingBrake;
-  propulsion = metrics.switchStatus.propulsion;
+  parkingBrakeButton.checked = metrics.switchStatus.parkingBrake;
+  propulsionButton.checked = metrics.switchStatus.propulsion;
 
   // Battery Info
   batteryLevel.innerText = metrics.batteryInfo.batteryLevel;
@@ -204,4 +204,39 @@ socket.on('updateRange', function(data, time) {
   console.log("Latency: " + ((jsTime - pyTime)*100) + "ms");
 
   posField.innerText = data
+});
+
+//Pod command buttons-- send state value to server.
+
+//deploy wheels
+$(deployWheels).on('switchChange.bootstrapSwitch' ,function(){
+  if (this.checked){
+    console.log('deploy wheels: true');
+    socket.emit('deployWheelsEngage', this.checked);
+  }
+});
+
+//eddy brake
+$(eddyBrake).on('switchChange.bootstrapSwitch' ,function(){
+  if (this.checked){
+    console.log('eddy brake: true');
+    socket.emit('eddyBrakeEngage', this.checked);
+  }
+});
+
+//parking brake
+$(parkingBrakeButton).on('switchChange.bootstrapSwitch' ,function(){
+  if (this.checked){
+    console.log('parking brake: true');
+    socket.emit('parkingBrakeEngage', this.checked);
+  }
+});
+
+// engage propolusion
+$(propulsionButton).on('switchChange.bootstrapSwitch' ,function(){
+  console.log("hello");
+  if (this.checked){
+    console.log('propulsion: true');
+    socket.emit('propulsionEngage', this.checked);
+  }
 });
