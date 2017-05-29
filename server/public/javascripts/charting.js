@@ -1,4 +1,4 @@
-/* 
+/*
  * The function drawGraph gets called once all the html and css are done processing to the page.
  * drawGraph() instantiates and draws the google chart then sets an interval, where every 1 second
  * new data is inserted and updates the chart (See updateChart and the setInterval that calls it)
@@ -13,6 +13,9 @@ function drawGraph() {
 
   var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
   var options = {
+    'title' : 'Position vs Time Chart - Testing Google Charts API',
+    'height' : 500,
+    'is3D' : true,
     hAxis: {
       title: 'Time'
     },
@@ -22,7 +25,7 @@ function drawGraph() {
   };
   chart.draw(data, options);
 
-  setInterval(updateChart, 1000);
+  var dynamics = setInterval(updateChart, 250);
   var count = 0;
 
   function updateChart(){
@@ -32,5 +35,9 @@ function drawGraph() {
     chart.draw(data, options);
 
     count++
+
+    if(count == 10)
+      clearInterval(dynamics);
+
   }
 }

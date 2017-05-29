@@ -240,3 +240,9 @@ $(propulsionButton).on('switchChange.bootstrapSwitch' ,function(){
     socket.emit('propulsionEngage', this.checked);
   }
 });
+
+// EMERGENCY STOP BUTTON
+$('#emergencyButton').on('click' ,function(){
+  console.log('EMERGENCY STOP CLICKED');
+  socket.emit('emergencyStop');
+});
