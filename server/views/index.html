@@ -12,6 +12,9 @@
 
     <title>Ground Control Station</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--Jquery code link -->
+
     <!-- Bootstrap Core CSS -->
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -132,6 +135,7 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
+
 
                     <div class="tubePositionPanel panel panel-yellow">
                         <div class="panel-heading">
@@ -332,8 +336,26 @@
 
                     <!-- /.panel .chat-panel -->
                 </div>
+                <div id = "chart_div" class = "col-lg-12 col-md-12 col-xs-12">
+
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div>
+                            <div class="list-group-item">
+                                <span>Is reflector on? </span>
+                                <span class="reflectorStatus pull-right"><span class="reflectorStatusField"></span> </span>
+                            </div>
+                            <div class="list-group-item">
+                                <span>Reflector Count</span>
+                                <span class="reflectorCount pull-right"><span class="reflectorCountField"></span> times</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
             </div>
             <!-- /.row -->
+
         </div>
         <!-- /#page-wrapper -->
 
