@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Ground Control Station</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--Jquery code link -->
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/stylesheets/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+
+    <link href="/vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href=" /vendor/bootstrap-switch-master/dist/css/bootstrap3/bootstrap-switch.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+
+                <a class="navbar-brand" href="index.html">Ground Control Station v1.0</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                  <img src="/images/hh-logo.png" style="
+                      max-width: 240px;
+                      padding-top: 20px;
+                      padding-bottom: 20px;"/>
+
+                  <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li><a class="" href="index.html"><i class="fa fa-dashboard fa-fw"></i> Pod Telemetry Dashboard</a></li>
+                        <li><a class="active" href="pod-health.html"><i class="fa fa-dashboard fa-fw"></i> Pod Health Check</a></li>
+
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row page-header">
+                <div class="col-lg-7">
+                    <h1 class="header">View Pod Status - Functional Test B</h1>
+                </div>
+            </div>
+            <div class="container">
+              <h2>Pod Health Check</h2>
+              <p>Green indicates within range. Red indicates out of range.</p>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                  <th></th>
+                  <th>Min</th>
+                  <th>Actual</th>
+                  <th>Max</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Levitation Height</td>
+                  <td id="levHeightMin"></td>
+                  <td id="levHeightActual"></td>
+                  <td id="levHeightMax"></td>
+
+                </tr>
+                <tr>
+                  <td>Battery Temperature</td>
+                  <td id="bv2Min"> 55 F </td>
+                  <td id="bv2Actual"> TRUE</td>
+                  <td id="bv2Max">140 F</td>
+                </tr>
+                <tr>
+                  <td>Battery Voltage</td>
+                  <td id="bv2Min"> 20 </td>
+                  <td id="bv2Actual"> TRUE</td>
+                  <td id="bv2Max">26.4</td>
+                </tr>
+                <tr>
+                  <td>Interior Pressure</td>
+                  <td id="bv2Min"> 0 ATM </td>
+                  <td id="bv2Actual"> TRUE</td>
+                  <td id="bv2Max">1 ATM</td>
+                </tr>
+                <tr>
+                  <td>Interior Temperature</td>
+                  <td id="bv2Min"> 20 C </td>
+                  <td id="bv2Actual"> TRUE</td>
+                  <td id="bv2Max">80 C</td>
+                </tr>
+                <tr>
+                  <td>Lateral Stability Status</td>
+                  <td id="bv2Min">  </td>
+                  <td id="bv2Actual"> TRUE</td>
+                  <td id="bv2Max"></td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+
+
+                    <!-- /.panel .chat-panel -->
+      </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/vendor/bootstrap-switch-master/dist/js/bootstrap-switch.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/vendor/dist/js/sb-admin-2.js"></script>
+
+    <!-- Include Socket IO -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- Main Javascript -->
+    <script src="/javascripts/main.js"></script>
+
+    <script src="/javascripts/podHealth.js"></script>
+
+
+    <!-- Include Google Charts API  -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- Charts Javascript File-->
+    <script src="/javascripts/charting.js"></script>
+
+</body>
+
+</html>

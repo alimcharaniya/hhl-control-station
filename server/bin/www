@@ -122,9 +122,40 @@ function onListening() {
       io.emit("updateRange", data, time);
    });
 
+   //RECIEVED DATA FROM RETRORFLECTOR
+   //OBRA OPEN HOUSE
    socket.on("gotRetroValue", function(id, data){
      console.log("got retro data!!!!" );
      io.emit("updateRetroValue", id, data);
    });
+
+
+
+   //EVENT LISTENERS FOR SWITCH COMMANDS
+   socket.on("deployWheelsEngage", function(switchState){
+     console.log(switchState);
+     io.emit("deployWheelsEngageIn", switchState);
+   });
+   socket.on("eddyBrakeEngage", function(switchState){
+     console.log(switchState);
+     io.emit("eddyBrakeEngageIn", switchState);
+
+   });
+   socket.on("parkingBrakeEngage", function(switchState){
+     console.log(switchState);
+     io.emit("parkingBrakeEngageIn", switchState);
+
+   });
+   socket.on("propulsionEngage", function(switchState){
+     console.log(switchState);
+     io.emit("propulsionEngageIn", switchState);
+
+   });
+   socket.on("emergencyStop", function(){
+     console.log(switchState);
+     io.emit("emergencyStopIn", switchState);
+
+   });
+
 
  });

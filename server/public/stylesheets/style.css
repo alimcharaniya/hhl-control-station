@@ -25,7 +25,7 @@ div > .podStatus {
 	width: 100%
 }
 
-.switchContainer { 
+.switchContainer {
 	margin: 1em 0;
 	text-align: center;
 }
@@ -33,7 +33,9 @@ div > .podStatus {
 .podSwitch {
 	display: inline-block;
 }
-
+#chartRow{
+	display:none;
+}
 @media (min-width: 992px) {
 	.emergencyStop {
 		width: initial;

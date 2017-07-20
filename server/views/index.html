@@ -80,6 +80,8 @@
                             <!-- /input-group -->
                         </li>
                         <li><a class="active" href="index.html"><i class="fa fa-dashboard fa-fw"></i> Pod Telemetry Dashboard</a></li>
+                        <li><a class="" href="pod-health.html"><i class="fa fa-dashboard fa-fw"></i> Pod Health Check</a></li>
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -318,28 +320,35 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
-
                     <!-- /.panel .chat-panel -->
                 </div>
-                <div id = "chart_div" class = "col-lg-12 col-md-12 col-xs-12">
+                <button class="btn btn-primary" id="viewGraphButton"> View Position vs Time Graph</button>
 
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-                        <div>
-                            <div class="list-group-item">
-                                <span>Is reflector on? </span>
-                                <span class="reflectorStatus pull-right"><span class="reflectorStatusField"></span> </span>
-                            </div>
-                            <div class="list-group-item">
-                                <span>Reflector Count</span>
-                                <span class="reflectorCount pull-right"><span class="reflectorCountField"></span> times</span>
-                            </div>
-                        </div>
+              </div>
+            <!-- /.row -->
+            <div class="row" id ="chartRow">
+              <div id = "chart_div" class = "col-lg-12 col-md-12 col-xs-12">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="positionTelemetryPanel panel panel-green col-lg-12 col-md-10 col-xs-10 ">
+                  <div class="panel-heading">
+                    <h3>Pod Distance Position</h3>
+                  </div>
+                  <!-- /.panel-heading -->
+                  <div class="panel-body">
+                    <h3 style="display:inline">Distance Traveled:   <h3 id="distanceTraveled" style="display:inline">10</h3></h3></br></br>
+                    <div class="progressBarMarkers">
+
                     </div>
-                    <!-- /.panel-body -->
+                    <div class="progress" style="height:35px">
+                      <div class="progress-bar progress-bar-striped bg-success" id="positionProgressBar" role="progressbar" style="width: 0%; height:35px;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+                  </div>
                 </div>
             </div>
-            <!-- /.row -->
 
         </div>
         <!-- /#page-wrapper -->

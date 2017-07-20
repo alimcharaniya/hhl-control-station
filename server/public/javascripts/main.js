@@ -166,7 +166,7 @@ function updateFields(metrics) {
 
 updateFields(podMetrics)
 
-
+//create tick marks in progress bar
 
 // Socket IO
 var socket = io.connect('/');
@@ -205,6 +205,38 @@ socket.on('updateRange', function(data, time) {
 
   posField.innerText = data
 });
+
+//hide pos vs time chart with button
+
+$('#viewGraphButton').on('click', function(event) {
+             jQuery('#chartRow').toggle('show');
+});
+
+
+//dynamic progress bar... make progress bar dynamic when loading
+
+var pBar = document.getElementById("positionProgressBar");
+var widthPBar = 1;
+var id = setInterval(increment, 500);
+var distance = document.getElementById("distanceTraveled");
+
+function increment(){
+  if (widthPBar >= 100){
+    clearInterval(increment);
+  } else {
+    distance.innerHTML = widthPBar + 100 + ' feet';
+    widthPBar = widthPBar + 2.44;
+    pBar.style.width = widthPBar + '%';
+
+  }
+}
+
+//add
+
+
+
+
+
 
 //Pod command buttons-- send state value to server.
 
